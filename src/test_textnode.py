@@ -13,7 +13,7 @@ class TestTextNode(unittest.TestCase):
 
     def test_eq_false(self):
         node1 = TextNode("This is a text node", TextType.BOLD)
-        node2 = TextNode("This is a text node", TextType.NORMAL)
+        node2 = TextNode("This is a text node", TextType.TEXT)
         self.assertNotEqual(node1, node2)
 
     def test_eq_false2(self):
