@@ -15,11 +15,10 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 
     # TextNode("This is text with a `code block` word", TextType.TEXT)
     for old_node in old_nodes:
-        if old_node.text_type != TextType.TEXT:
+        if not old_node.text_type == TextType.TEXT:
             new_nodes.append(old_node)
             continue
         
-
         split_node = old_node.text.split(delimiter)
         # length is even, must be missing a delimiter
         if len(split_node) % 2 == 0:
@@ -148,7 +147,6 @@ def extract_markdown_links(text):
 
 def text_to_textnodes(text):
     """converts the input text to a list of TextNode objs and returns the list"""
-    
     # start by creating a TextNode with a text that is the entire text input
     textnodes = split_nodes_delimiter([TextNode(text, TextType.TEXT, None)], "**", TextType.BOLD)
     
