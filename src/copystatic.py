@@ -4,7 +4,7 @@ import shutil
 
 def copy_files_recursive(source_dir_path, target_dir_path):
 
-    # does to_dir exist? 
+    # does target exist? 
     if not os.path.exists(target_dir_path):
         os.mkdir(target_dir_path)
 
@@ -17,7 +17,9 @@ def copy_files_recursive(source_dir_path, target_dir_path):
         target_path = os.path.join(target_dir_path, filename)
 
         print(f" * {source_path} -> {target_path}")
+        # can copy source to target if file
         if os.path.isfile(source_path):
             shutil.copy(source_path, target_path)
+        # it's a directory so drill down into it
         else:
             copy_files_recursive(source_path, target_path)
